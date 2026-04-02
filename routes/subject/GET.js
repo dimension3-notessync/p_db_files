@@ -13,7 +13,7 @@ export default async function filesFromSubject(req, res, client, collection, db)
         const data = await db.collection(collection)
             .find({subjectID: subject}) // Find subscriptions where the subscriber is the user
             .toArray();
-        return res.status(200).send({data});
+        return res.status(200).send({files: data});
     }
     catch (err) {
         console.error(err);
