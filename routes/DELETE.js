@@ -13,8 +13,8 @@ export default async function deleteHandler(req, res, client, collection, db) {
         return res.status(400).send({message: "fileID has to be > 0"})
     }
     try {
-        if (await db.collection(collection).findOne({fileID: fileID})) {
-            await db.collection(collection).deleteOne({fileID: fileID})
+        if (await db.collection(collection).findOne({id: fileID})) {
+            await db.collection(collection).deleteOne({id: fileID})
             return res.status(200).send({message: "file-entry successfully deleted from database"});
         } else {
             return res.status(404).send({message: "fileID doesn't exist"})
