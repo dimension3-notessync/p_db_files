@@ -68,6 +68,17 @@ router.get('/:id', async (req, res) => {
     oneFile(req, res, client, collection, db);
 })
 
+
+router.get('/health', async (req, res) => {
+    try {
+        await client.db('admin').command({ ping: 1 });
+        return res.status(200).send('p_db_files is healthy and connected to DB');
+    } catch (error) {
+        console.error('p_db_files health check failed:', error);
+        return res.status(500).send('p_db_files is unhealthy');
+    }
+});
+
 app.use('/', router);
 
 app.listen(PORT, () => {
