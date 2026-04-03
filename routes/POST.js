@@ -6,11 +6,11 @@ export default async function insertHandler(req, res, client, collection, db){
     if (!req.body.lectureID) {
         return res.status(400).send({ message: "lectureID is missing" });
     }
-    const lectureID = req.body.lectureID;
+    const lectureID = parseInt(req.body.lectureID);
     if (!req.body.authorID) {
         return res.status(400).send({ message: "authorID is missing" });
     }
-    const authorID = req.body.authorID;
+    const authorID = parseInt(req.body.authorID);
     if (!req.body.fileName) {
         return res.status(400).send({ message: "fileName is missing" });
     }
@@ -26,7 +26,7 @@ export default async function insertHandler(req, res, client, collection, db){
     if (!req.body.uploadTime) {
         return res.status(400).send({ message: "uploadTime is missing" });
     }
-    const uploadTime = req.body.uploadTime;
+    const uploadTime = parseInt(req.body.uploadTime);
     const aiSummary = req.body.aiSummary || "No summary available";
 
     let id;
