@@ -46,7 +46,7 @@ router.put('/change/summary', async (req, res) => {
 })
 
 // delete file
-router.put('/:fileid', async (req, res) => {
+router.delete('/:fileid', async (req, res) => {
     deleteHandler(req, res, client, collection, db);
 })
 
