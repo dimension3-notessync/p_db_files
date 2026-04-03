@@ -2,6 +2,7 @@
 export default async function allFiles(req, res, client, collection, db) {
     try {
         const data = await db.collection(collection)
+            .find({}, { projection: { _id: 0 } })
             .toArray();
         return res.status(200).send({ files: data });
     }
