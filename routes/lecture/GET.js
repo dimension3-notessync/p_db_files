@@ -14,7 +14,8 @@ export default async function filesFromLecture(req, res, client, collection, db)
     }
     try {
         const data = await db.collection(collection)
-            .find({lectureID: lectureID}) // Find subscriptions where the subscriber is the user
+            .find({lectureID: lectureID})
+            .project({_id: 0 }) // Select only 'userid', exclude '_id'
             .toArray();
         return res.status(200).send({files: data});
     }
