@@ -1,21 +1,23 @@
 
 export default async function filesFromAuthor(req, res, client, collection, db) {
     let authorID;
-    if (req.params.id === undefined) {
-        return res.status(400).send('No valid authorid found');
+    if (req.params.authorID === undefined) {
+        return res.status(400).send('No valid authorID found');
     } else {
-        authorID = parseInt(req.params.id)
+        authorID = parseInt(req.params.authorID)
     }
     if (!authorID ||isNaN(authorID)) {
-        return res.status(400).send({message: "authorid has to be an integer"})
+        return res.status(400).send({message: "authorID has to be an integer"})
     }
     if (authorID < 0) {
-        return res.status(400).send({message: "authorid has to be > 0"})
+        return res.status(400).send({message: "authorID has to be > 0"})
     }
     try {
+        console.log(authorID);
         const data = await db.collection(collection)
-            .find({authorID: authorID}) // Find subscriptions where the subscriber is the user
+            .find({authorID: authorID}) // Find files where the authorID is the author
             .toArray();
+        console.log(data);
         return res.status(200).send({files: data});
     }
     catch (err) {
