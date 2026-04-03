@@ -15,16 +15,20 @@ app.use(express.json());
 const router = express.Router();
 
 
-const PORT = process.env.PORT || 11600;
-const uri = 'mongodb://localhost:27017';
+const PORT = process.env.PORT || "undefined";
+const uri = process.env.CONNECTION_STRING || "undefined";
 const database = 'files';
 const collection = "files";
 let client;
 let db;
 
 
-if (!PORT) {
-    console.error("Critical Error: Missing PORT environment variable. Please set it.");
+if (uri === "undefined") {
+    console.log("Missing uri");
+    process.exit(1);
+}
+if (PORT === "undefined") {
+    console.log("Missing PORT");
     process.exit(1);
 }
 
