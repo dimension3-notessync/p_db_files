@@ -16,6 +16,7 @@ export default async function filesFromAuthor(req, res, client, collection, db) 
         console.log(authorID);
         const data = await db.collection(collection)
             .find({authorID: authorID}) // Find files where the authorID is the author
+            .project({_id: 0 }) // Select only 'userid', exclude '_id'
             .toArray();
         console.log(data);
         return res.status(200).send({files: data});

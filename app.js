@@ -56,7 +56,7 @@ router.get('/all', async (req, res) => {
     allFiles(req, res, client, collection, db);
 })
 // get all files from an author
-router.get('/author/:id', async (req, res) => {
+router.get('/author/:authorID', async (req, res) => {
     filesFromAuthor(req, res, client, collection, db);
 })
 // get all files from a subject
