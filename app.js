@@ -2,13 +2,13 @@
 import express from 'express';
 import {MongoClient} from 'mongodb';
 import insertHandler from "./routes/POST.js";
-import summaryUpdateHandler from "./routes/change/summary/PUT";
-import deleteHandler from "./routes/DELETE";
-import allFiles from "./routes/all/GET";
-import filesFromAuthor from "./routes/author/GET";
-import filesFromSubject from "./routes/subject/GET";
-import filesFromLecture from "./routes/lecture/GET";
-import oneFile from "./routes/GET";
+import summaryUpdateHandler from "./routes/change/summary/PUT.js";
+import deleteHandler from "./routes/DELETE.js";
+import allFiles from "./routes/all/GET.js";
+import filesFromAuthor from "./routes/author/GET.js";
+import filesFromSubject from "./routes/subject/GET.js";
+import filesFromLecture from "./routes/lecture/GET.js";
+import oneFile from "./routes/GET.js";
 
 const app = express();
 app.use(express.json());
