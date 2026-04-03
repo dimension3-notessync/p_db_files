@@ -20,8 +20,8 @@ export default async function summaryUpdateHandler(req, res, client, collection,
     }
 
     try {
-        if (await db.collection(collection).findOne({fileID: fileID})) {
-            await db.collection(collection).updateOne({fileID: fileID}, {$set: {aiSummary: aiSummary}});
+        if (await db.collection(collection).findOne({id: fileID})) {
+            await db.collection(collection).updateOne({id: fileID}, {$set: {aiSummary: aiSummary}});
             return res.status(200).send({message: "file-entry successfully updated with aiSummary"});
         } else {
             return res.status(404).send({message: "fileID doesn't exist"})
