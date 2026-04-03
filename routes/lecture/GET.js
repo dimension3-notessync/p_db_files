@@ -1,10 +1,10 @@
 
 export default async function filesFromLecture(req, res, client, collection, db) {
     let lectureID;
-    if (req.params.id === undefined) {
+    if (req.params.lectureID === undefined) {
         return res.status(400).send('No valid lectureID found');
     } else {
-        lectureID = parseInt(req.params.id)
+        lectureID = parseInt(req.params.lectureID)
     }
     if (!lectureID ||isNaN(lectureID)) {
         return res.status(400).send({message: "lectureID has to be an integer"})
