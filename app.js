@@ -68,7 +68,7 @@ router.get('/lecture/:lectureID', async (req, res) => {
     filesFromLecture(req, res, client, collection, db);
 })
 // get one file
-router.get('/:id', async (req, res) => {
+router.get('/one/:id', async (req, res) => {
     oneFile(req, res, client, collection, db);
 })
 
