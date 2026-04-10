@@ -1,7 +1,5 @@
 # p_db_files
 
-# p_db_users
-
 **Description:**  
 database component only accessable via docker network.  
 Handles read/write action requested by backend components on the 'files' collection
