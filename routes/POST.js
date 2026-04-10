@@ -54,7 +54,7 @@ export default async function insertHandler(req, res, client, collection, db){
 
     try {
         await db.collection(collection).insertOne(data)
-        return res.status(200).send({message: "Successfully added new file"});
+        return res.status(200).send({message: "Successfully added new file", id: id});
     }
     catch (error) {
         return res.status(500).send({message : "error inserting data in database"});
