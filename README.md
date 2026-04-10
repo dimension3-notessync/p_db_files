@@ -11,7 +11,7 @@ file entries are automatically assigned an unique (augmenting) id
 Route               | HTTP-Method         | Input-Information                                                  | Output-Information              | Description
 ____________________________________________________________________________________________________________________________________________________________________________________
 /                   | POST                | lectureID: Integer                                                 | 200 - message: String
-                                          | authorID: Integer
+                                          | authorID: Integer                                                  | id: Integer
                                           | fileName: String
                                           | fileUrl: String
                                           | subject: String
