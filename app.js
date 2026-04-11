@@ -21,6 +21,7 @@ const database = 'files';
 const collection = "files";
 let client;
 let db;
+const start = Date.now();
 
 
 if (uri === "undefined") {
@@ -74,9 +75,10 @@ router.get('/one/:id', async (req, res) => {
 
 
 router.get('/health', async (req, res) => {
+    const uptime = Date.now() - start;
     try {
         await client.db('admin').command({ ping: 1 });
-        return res.status(200).send('p_db_files is healthy and connected to DB');
+        return res.status(200).send({message: 'p_db_files is healthy and connected to DB', uptime: uptime});
     } catch (error) {
         console.error('p_db_files health check failed:', error);
         return res.status(500).send('p_db_files is unhealthy');
